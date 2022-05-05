@@ -8,7 +8,6 @@ package org.guilhermesilveira;
  * timing. It places each invocation at least deltaMillis apart from each other.
  * Because of the thread scheduler, they might be more than deltaMillis apart.
  * 
- * @example SingleTimer
  * @author Guilherme Silveira
  */
 public class Timer {

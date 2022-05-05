@@ -20,8 +20,6 @@ import processing.core.PApplet;
  * more appropriate to make changes to variables during the callback and reflect
  * those changes in your drawing loop.
  *
- * @example SingleTimer
- * 
  * @author Guilherme Silveira
  */
 public class Timers {
@@ -31,8 +29,7 @@ public class Timers {
 	/**
 	 * Initializes the timers
 	 * 
-	 * @example SingleTimer
-	 * @param theParent the parent PApplet
+	 * @param sketch the parent PApplet
 	 */
 	public Timers(PApplet sketch) {
 		sketch.registerMethod("pre", this);
@@ -76,7 +73,6 @@ public class Timers {
 	 * @param deltaMillis the minimum interval in milliseconds
 	 * @param k           the amount of times to invoke the callback
 	 * @param callback    the function will no parameters to be invoked
-	 * @example SingleTimer
 	 */
 	public void add(int deltaMillis, int k, Runnable callback) {
 		timers.add(new Timer(deltaMillis, k, (z) -> callback.run()));
@@ -91,7 +87,6 @@ public class Timers {
 	 * @param callback     the function will no parameters to be invoked
 	 * @param exitCallback the exit callback that will be invoked right after the
 	 *                     last invocation to the callback
-	 * @example MultipleTimers
 	 */
 	public void add(int deltaMillis, int k, Runnable callback, Callback exitCallback) {
 		timers.add(new Timer(deltaMillis, k, (z) -> callback.run(), exitCallback));
@@ -105,7 +100,6 @@ public class Timers {
 	 * @param k           the amount of times to invoke the callback
 	 * @param callback    the function that receives one parameter with the current
 	 *                    tick for this timer
-	 * @example MultipleTimers
 	 */
 	public void add(int deltaMillis, int k, Callback callback) {
 		timers.add(new Timer(deltaMillis, k, callback, Callback.DO_NOTHING));
@@ -121,7 +115,6 @@ public class Timers {
 	 *                     tick for this timer
 	 * @param exitCallback the exit callback that will be invoked right after the
 	 *                     last invocation to the callback
-	 * @example MultipleTimers
 	 */
 	public void add(int deltaMillis, int k, Callback callback, Callback exitCallback) {
 		timers.add(new Timer(deltaMillis, k, callback, exitCallback));
